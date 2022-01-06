@@ -4,12 +4,14 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Fastfood fastfood = new Fastfood(0, "KFC");
-        System.out.println("cs vítej v " + fastfood.name);
+        Fastfood fastfood = new Fastfood("KFC");
+        System.out.println("Welcome to " + fastfood.name + "\nWhats your order ?");
 
-        while(sc.hasNext()) {
-            System.out.println("Zadej objednavku");
-
+        while(sc.hasNextInt()) {
+            int input = sc.nextInt();
+            fastfood.SellChickens(input);
+            System.out.println("Supplies on stock " + fastfood.stock);
+            System.out.println("Whats your order ?");
         }
     }
 }

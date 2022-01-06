@@ -4,20 +4,21 @@ public class Fastfood {
     int stock;
     final String name;
 
-    public Fastfood(int stock, String name) {
-        this.stock = stock;
+    public Fastfood(String name) {
+        this.stock = 0;
         this.name = name;
     }
-
-    public int getStock() {
-        return stock;
+    public void BuyChickens(int amount) {
+        int storageOfChickens = stock - amount;
+        if(storageOfChickens <= 0 ) {
+            stock += amount * 2;
+            System.out.println("Selling " + amount + " of chicken");
+            System.out.println("Increasing stock by " + stock);
+        }
+        stock -= amount;
+        System.out.println("Decreasing stock by " + stock);
     }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String getName() {
-        return name;
+    public void SellChickens(int amount) {
+        BuyChickens(amount);
     }
 }
